@@ -1,0 +1,98 @@
+Selectors
+CSS Selectors
+Don't nest default classes
+Correct
+
+.hero {}
+
+.hero__wrapper {}
+
+/* Good */
+.hero--left-alignment {
+  .hero__wrapper {}
+}
+
+/* Good, too */
+.hero__wrapper {
+  .hero--left-alignment & {}
+}
+Incorrect
+
+.hero {
+  /* BAD: You don't need to pass child class `.hero__something` in default class `.hero` */
+  .hero__wrapper {}
+}
+Use a full class for all selector levels
+We want to easy to find any class using the Search function in IDE.
+
+Correct
+
+.hero {}
+
+.hero__title {}
+Incorrect
+
+.hero {
+  &__title {}
+}
+Avoid using id attribute
+Don't apply style attribute to any id attribute in the markup. It could be hard to overwrite it again.
+
+Exception: The markup output is handled by a third party plugin (like Gravity Form).
+
+Correct
+
+.contact-form {
+  .gf-form {
+  }
+}
+Incorrect
+
+#form-id-4 {}
+Avoid applying a style to element
+If you could add a class to an element, don't apply a style to element.
+
+Correct
+
+.hero__image {}
+Incorrect
+
+.hero {
+  img {}
+}
+Exception
+
+Some elements like <svg> should control using a wrapper div, but still, need to add to the <svg> element. Usually, <svg> element doesn't need to add class, because it will be imported through a function and keep reusable in multiple components.
+
+.hero__icon {
+  svg {}
+}
+<div class="hero__icon">
+  <svg>...</svg>
+</div>
+Nesting class cases
+You can add nesting class from a parent like:
+
+.child {
+  .parent & {}
+}
+Available cases
+Using with BEM Class "Extending" name
+
+.hero__title {
+  text-align: center;
+
+  .hero--left-alignment & {
+    text-align: left;
+  }
+}
+Body Class added by Javascript
+
+.header {
+  position: fixed;
+
+  /* It's a body class added by a Javascript */
+  .is-sticky-header & {
+    transform: translateY(-10px);
+  }
+}
