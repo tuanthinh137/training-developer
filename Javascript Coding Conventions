@@ -1,0 +1,135 @@
+Javascript
+Javascript Coding Conventions
+Global Javascript Coding Standard
+We user StandardJS to keep a clean code. It should be integrated with your IDE (phpStorm).
+
+Quick setup in phpStorm
+
+Open a Terminal, type npm install -g standard
+Open a phpStorm | Preferences | search "ESLint" and enable it.
+StandardJS phpStorm Setting
+Screenshot refer: https://prnt.sc/1r7l0ks
+
+Variables
+Javascript Selector calls use the prefix in markup
+Any selector inside a Javascript should have a prefix class .js-.
+
+export default (el) {
+  // Good
+  const accordionItems = el.querySelectorAll('.js-item')
+
+  // Bad
+  const accordionItems = el.querySelectorAll('.accordion__item')
+}
+Javascript selectors should use camelCase pattern
+The first letter of first word is lowercase, from a second word it must be UPPERCASE.
+
+const firstSecondThirdFourth = ...
+const navItems = []
+const closeDropdownButton = ...
+Static Constants
+Using const for any class variables
+
+const ACTIVE_CLASS = 'accordion__item--active'
+Using UPPERCASE with _ naming convention
+
+const ITEM_ACTIVE_CLASS = 'accordion__item--active'
+Define constants outside of a module scope
+
+// File: accordion.js
+const ACTIVE_CLASS = 'accordion--active'
+const ITEM_ACTIVE_CLASS = 'accordion__item--active'
+
+// It's a module scope below
+export default (el) => {
+  // Bad
+  const BODY_ACTIVE_CLASS = 'is-accordion-enable'
+}
+Define body class
+
+Some interactives like a sticky header, modal... requires to add a body class (to do some styling like overflow: hidden) rarely than only applying a module class.
+
+It follows a simple below rule to keep easy for tracking.
+
+is-<obj>-<verb/adj>
+For example:
+
+.is-modal-activate (modal is opened)
+.is-sticky-header (header was scrolled and has a sticky style)
+.is-search-open (has a search overlay opened)
+.is-login-form-open (has a login form overlay opened)
+Creating a new array
+Empty array
+
+If you want to create an empty array, don't set it to null when defining
+
+// Good
+const selectedItems = [] // Empty array
+// Then you could do
+if (newItem) {
+  selectedItems.push(newItem)
+}
+
+// Bad, It could be harmful to your logical
+let selectedItem
+const selectedItems = null
+// selectedItems.push(newItem) is not working because it's not an array
+Wrap inside Array.prototype.slice.call() to create a new array and working with .map()
+
+export default (el) {
+  const navItems = Array.prototype.slice.call(el.querySelectorAll('.js-item'))
+
+  // Then it could be work with a prototype `.map()` (ES6+). Avoid using `forEach` (old ES5 method)
+  if (navItems.length) {
+    navItems.map()
+  }
+}
+Functions
+Function Name
+Using verb + object
+
+// activate is a verb, `active` is adj.
+const activateItem = (item) => item.classList.add(ITEM_ACTIVE_CLASS)
+Using lowerCase
+
+If a function name contains multiple words, using lowerCase (the first word is lower, from a second word has a first letter UPPERCASE)
+
+const openModal = (modalEl) => modalEl.classList.add(MODAL_ACTIVE_CLASS)
+const toggleMenu = () => menuEl.classList.toggle(ACTIVE_MENU_CLASS)
+Function Condition
+Always to check an object exists before process
+
+// Working with single DOM object
+const activateItem = (item) => {
+  if (item) { // do something }
+}
+
+// Working with an array
+const deactivateAllItems = (items) => {
+  if (items.length) {
+    items.map((item) => item.classList.remove(ITEM_ACTIVE_CLASS))
+  }
+}
+Avoid duplicate global naming function in each function
+Don't try to call the global variable inside each function, because it's hard to check a logical.
+
+Keep a specific name using multiple and single strings.
+
+navItems (multiple)
+navItem (single)
+navItems.map(navItem => navItem.classList.remove(NAV_ITEM_CLASS))
+
+// or
+
+accordionList (multiple)
+accordionItem (single)
+accordionList.map(accordionItem => accordionItem.classList.add(ITEM_ACTIVE_CLASS))
+Bad example
+
+In the above example, we can't track what is item because it was used multiple in different functions.
+
+const navItems = ...
+navItems.map(item => item.classList.remove(...))
+
+const parentNavItems = ...
+parentNavItems.map(item => item.classList.remove())
