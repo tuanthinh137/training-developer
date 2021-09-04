@@ -1,0 +1,24 @@
+Select Field
+Select Field Responsive Pattern
+Target
+This component is created to help you understand the functional programming in Javascript.
+
+Goals
+Have a good BEM Class CSS structure
+Understanding the good point of using pointer-events: none in some breakpoints
+Understanding the module structure: typography, postCSS variables, some postCSS syntax.
+Learn to work with Javascript using functional way.
+Setup this training
+
+Practice Description
+Design
+Live demo: https://thegrovela.com/dining/
+
+Design
+
+Request detail
+Mobile: when clicking this select, it displays a native select (to support in all mobile devices)
+
+Desktop (768px+): when clicking this select, it displays the custom dropdown. After selecting any item in dropdown, the dropdown will close and display a selected text. When reopening the dropdown, it must have an active state of the current selected item.
+
+Extra request: It must sync between mobile and desktop screen, meaning when selecting any item on mobile, it will display selected text in the custom dropdown.
