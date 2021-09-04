@@ -1,0 +1,38 @@
+Card Grid
+
+Design
+
+Link: https://im.ge/i/QSJozS
+https://ibb.co/QNdq9YT
+
+Mobile (0 - 767px) https://share.goabstract.com/fed7b3af-7566-42b0-a63f-dab3e0bcdb49
+
+768px+ https://share.goabstract.com/b6a5c11b-a983-4930-b405-98412a8260cc
+
+1024px+ https://share.goabstract.com/8df4ed04-f07f-4d02-861a-c37d53b0df0d
+
+1440px+ https://share.goabstract.com/107adf12-7bcd-4271-b6e3-e481079c550b
+
+Assets
+Icons (plus, minus) (using SVG inline)
+
+https://www.dropbox.com/sh/h15gyz0mb7zej2x/AADnGYTMw68TUdPHX7_N8MnYa/Icons/_UI%20Elements?dl=0&subfolder_nav_tracking=1
+
+Typography Design
+
+https://share.goabstract.com/fc9ad679-126c-46ac-9518-50fdbca29924?mode=design&sha=daf2b216ab824a9b70823ec9b32529b75513a696
+
+Image
+
+https://placeimg.com/
+
+Fonts
+
+Using Google Fonts. It doesn't need to match exactly as Abstract design.
+
+Instruction
+Keep all cards that have the same height with different description length, but don't use height: 100%.
+Add a global typography class as needed.
+Keep the good BEM structure.
+Installation
+Fork a Codepen template and start editing using Codepen
