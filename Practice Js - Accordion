@@ -1,0 +1,37 @@
+Accordion
+
+Design: https://prnt.sc/1r7lhvy
+
+Mobile (0 - 767px)
+
+https://app.goabstract.com/projects/dbca9e9c-b6c9-49f7-acae-ab799023ff4f/branches/master/commits/fbb7071ea58edb9f279b23bacf1b9fcbbf9ef090/files/05FC40E3-9EF5-4DB0-A63F-678DBE446A7C/layers/94268A8A-91E9-48D4-A84C-3B4659F062B3
+
+768px+
+
+https://share.goabstract.com/4981ef46-f23d-43a1-892a-3f26e4932656?mode=design&sha=dd83a4d6ac014fabab40cb71f5d1081b66d59240
+
+1024px+
+
+https://share.goabstract.com/3efcde23-067a-485e-a548-22285db0551f?mode=design&sha=dd83a4d6ac014fabab40cb71f5d1081b66d59240
+
+1440px+
+
+https://share.goabstract.com/7a3dda40-17d5-4595-9ada-c5b10a53aca2?mode=design&sha=876221b315737b8850cb37d245d9d5e76cbf74ca
+
+Assets
+Icons (plus, minus)
+
+https://www.dropbox.com/sh/h15gyz0mb7zej2x/AADnGYTMw68TUdPHX7_N8MnYa/Icons/_UI%20Elements?dl=0&subfolder_nav_tracking=1
+
+Typography Design
+
+https://share.goabstract.com/fc9ad679-126c-46ac-9518-50fdbca29924?mode=design&sha=daf2b216ab824a9b70823ec9b32529b75513a696
+
+Instruction
+Use SVG icon for plus/minus icon
+Create global typography class if needed.
+Skip font-family, but must match colors and other typography attributes.
+Smooth animation is required.
+An only a single item can be opened at same time.
+Installation
+Fork a Codepen template and start editing using Codepen
