@@ -1,0 +1,72 @@
+Spacing
+CSS Spacing
+Single selector
+
+/* Correct */
+.selector {}
+
+/* Incorrect */
+.selector{}
+Multiple selectors on same level
+/* Correct */
+.selector {}
+
+.selector2 {}
+
+/* Incorrect: Missing empty blank line */
+.selector {}
+.selector2 {}
+Parent and child selectors
+/* Parent has no property */
+.parent--extends {
+  .child {}
+}
+
+/* Parent has properties */
+.parent--extends {
+  position: absolute;
+
+  .child {} /* Keep an empty blank line before */
+}
+
+/* Parent has @media query */
+.parent--extends {
+  margin-top: 20px;
+
+  @media (--m) { /* Keep an empty blank line before */
+    margin-top: 30px;
+  }
+
+  @media (--l) { /* Keep an empty blank line before */
+    margin-top: 40px;
+  }
+
+  .child {} /* Keep an empty blank line before */
+}
+
+/* Parent has `:first-child` or `:before` */
+.parent--extends {
+  position: absolute;
+
+  &::before {
+    content: '';
+
+    @media (--m) {}
+  }
+
+  &:first-child {}
+
+  @media (--m) {}
+
+  .child {
+    margin-top: 20px;
+
+    &::before {}
+
+    &:first-child {}
+
+    @media (--m) {
+      margin-top: 30px;
+    }
+  }
+}
