@@ -1,0 +1,79 @@
+BEM
+
+BEM (Block Element Modifier) is a set of rules to help us build a reused and flexible modules.
+
+It contains 3 parts:
+
+Block
+Generally, it's a main component or module.
+
+<header class="header"></header>
+<section class="two-up"></section>
+<button class="button"></button>
+Element
+Element is apart of any block. It has a block prefix.
+
+Syntax
+
+<module>__<element>
+For example:
+
+<header class="header">
+  <div class="header__container">
+    <div class="header__logo"></div>
+    <nav class="header__nav"></nav>
+  </div>
+</header>
+Using it once (simple)
+<section class="hero">
+  <h2 class="hero__headline"></h2>
+  <p class="hero__description"></p>
+</section>
+Using it in the loop with a shorter name
+<div class="two-up">
+  <h2 class="two-up__headline"></h2>
+  <div class="two-up__list">
+    <!-- If `__item` happens once in `__list`, we don't need to use `__list-item` to make it shorter -->
+    <div class="two-up__item">
+      <!-- If `__title` happens once in `__item`, we don't need to use `__item-title` to make it shorter -->
+      <h3 class="two-up__title"></h3>
+    </div>
+    <div class="two-up__item">
+      <h3 class="two-up__title"></h3>
+    </div>
+  </div>
+</div>
+Using it with multiple levels
+<section class="acccordion">
+  <!-- `__title` -->
+  <h2 class="accordion__title"></h2>
+  <div class="accordion__list">
+    <div class="accordion__item">
+      <!-- `__title` stays in `__item`, so if you use a same name, you must change it to `__item-title`
+      <h3 class="accordion__item-title"></h3>
+    </div>
+  </div>
+</section>
+Using with Global Classes
+(under Draff)
+
+Modifier
+"Modifier" is the way to add extend a class to an existing module/component.
+
+Syntax
+
+<module_name>--<extend_class>
+Example: using two-up--left-alignment to set left alignment for __wrapper
+
+<div class="two-up two-up--left-alignment">
+  <div class="two-up__wrapper"></div>
+</div>
+.two-up__wrapper {
+  text-align: center;
+}
+
+.two-up--left-alignment {
+  .two-up__wrapper {
+    text-align: left;
+  }
+}
