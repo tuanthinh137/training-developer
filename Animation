@@ -1,0 +1,30 @@
+Animation
+CSS Animation Rules
+Avoid applying a transition to all attributes
+You should keep applying a transition to matching attributes to increase website performance.
+
+.selector {
+  background: var(--white);
+  transition: background 0.3s ease; /* don't use `transition: all` */
+
+  &:hover {
+    background: var(--primary);
+  }
+}
+Animation attributes
+The animation is not working well with some attributes:
+
+margin
+padding
+height: auto;
+Using translate3d
+Using tranlate3d is better than translateX or translateY to keep a GPU render.
+
+.selector {
+  transform: translate3d(0, -50%, 0);
+  transition: transform .3s ease;
+
+  &:hover {
+    transition: translate3d(0, 0, 0);
+  }
+}
