@@ -1,0 +1,125 @@
+HTML5
+HTML5 Coding Conventions
+Attribute Orders
+class
+id, name
+data-*
+src, for, type, href, value
+title, alt
+role, aria-*`
+For example:
+
+<div class="accordion__list" id="faq" data-accordion-list></div>
+<a class="..." id="..." data-toggle="modal" href="#">
+<input class="form-control" type="text">
+Multiple attributes
+If the single element has many attributes, you can separate them by multiple lines.
+
+<section class="hero"
+  id="hero-homepage"
+  data-modal-target=".modal-hero"
+  data-scroll-position=".footer"
+>
+Don't need to add a self-close tag
+HTML5 doesn't require to add end tag
+
+Correct
+
+<img class="" alt="" src="">
+<hr class="">
+Incorrect
+
+<img class="" alt="" src="" />
+<hr />
+Text Content
+Markup Content
+Don't write uppercase text in demo content. Using text-transform: uppercase.
+<!-- Good -->
+<div class="hero__description">
+  <p>A hero description made for <a class="bold uppercase hero__link" href="/training">a testing training</a>.</p>
+  <p>Second line...</p>
+</div>
+<!-- Not perfect, but it could be using php method -->
+<p class="hero__label"><?php echo strtoupper($label); ?></p>
+<!-- Bad -->
+<p class="hero__label">UPPERCASE TEXT</p>
+Using Unicode character
+For example
+
+&copy; (good) © (bad)
+&hellip; (good) ... (bad)
+Check from this list
+
+Semantic HTML5 tag
+Using <section>
+To using <section>, in this module must have at least 1 Heading text (usually H1 or H2).
+
+<section class="two-up">
+  <h2 class="two-up__headline"><?php echo $headline; ?></h2>
+</section>
+Using <header>
+<header> can stay inside other blocks if match some requirements. It must contain a heading and paragraph text in these cases.
+
+<section>
+  <header></header>
+</section>
+
+<article>
+  <header></header>
+</article>
+Example:
+
+<section class="accordion">
+  <header class="accordion__header">
+    <h2 class="accordion__headline"></h2>
+    <p class="accordion__description"></p>
+  </header>
+</section>
+Using <nav>
+<nav> should stay inside <header> and appear once in a whole page.
+
+<header>
+  <nav></nav>
+</header>
+Using <figure>
+Naming it like __image-wrapper or __figure to keep a semantic HTML5. This tag contains media, like image, video.
+
+<figure class="hero__image">
+  <img class="hero__image" src="" alt="">
+</figure>
+Some of our projects are built with module image which includes this tag and a lazy load feature. You just need to pass an image variable, usually, it's image ID or image object.
+
+<?php
+the_module('image', array(
+  'image' => $image_id,
+  'class' => 'hero__image-wrapper',
+  'size' => 'large',
+  'cover' => true
+));
+?>
+Shopify project
+
+{%- render 'image', 
+  image: image_id, 
+  class: 'hero__image-wrapper',
+  cover: true
+-%}
+Using <aside>
+Aside is presented for sidebar. Using <aside> belongs with <main> or <article>
+
+<article>
+  <header></header>
+  <aside></aside>
+  <footer></footer>
+</article>
+or
+
+<body>
+  <main>
+    <!-- It could be -->
+    <aside></aside>
+  </main>
+  <aside></aside>
+<body>
+Using <dialog>
+<dialog> tag could help you display a message, popup or modal to users.
