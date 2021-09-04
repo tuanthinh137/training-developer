@@ -1,0 +1,29 @@
+VueJS Filters
+VueJS Card Grid Filters
+vuejs-filter
+https://prnt.sc/1r7lroi
+
+This training contains 3 missions to help you get more understanding about VueJS and design system.
+
+Installation
+Fork this Codepen template: https://codepen.io/garyc40/pen/qBBYRpb
+Complete all below missions
+Missions
+Mission 1: Implement Filter Feature
+Screenshot: https://prnt.sc/1r7lvo2
+
+Clear feature
+
+When selecting from a dropdown filter "Filter By", the card grid will only display cards that match category name.
+
+Mission 2: Add reset feature
+https://prnt.sc/1r7slfh
+VueJS Filter
+
+The default selection of the dropdown filter is "All". When selecting this option, it should be load all cards.
+
+Mission 3: Add clear feature
+
+https://prnt.sc/1r7snxb
+
+When selecting any other options excerpt "All", it should have a button "Clear" (x) icon which reset back to "All".
