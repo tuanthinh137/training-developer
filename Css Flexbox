@@ -1,0 +1,101 @@
+Flexbox
+CSS Flexbox
+Learning
+Read a Guide
+
+Best Practices
+Don't apply flex: <property> with a single attribute
+Correct
+
+.selector {
+  flex: 0 0 auto; /* Default */
+  flex: 1 0 auto;
+  flex: 1 1 0;
+}
+Incorrect
+
+.selector {
+  flex: 1; /* It could be wrong in IE11 */
+}
+flex-grow should be 0 or 1
+In a grid layout made by Flexbox, it's all child columns or a single column could have a flex-grow: 1 property. Other columns should be flex-grow: 0. It's good to keep a grid working with fewer bugs.
+
+Correct
+
+.selector {
+  flex-grow: 0;
+  flex-grow: 1;
+  flex: 1 1 0; /* => flex-grow: 1 */
+  flex: 0 1 auto; /* => flex-grow: 0 */
+}
+Incorrect
+
+.selector {
+  flex-grow: 2;
+  flex: 2;
+  flex: 2 1 auto;
+}
+Child elements (columns) should have a fixed width (by percentage or fixed-width)
+.selector {
+  width: 100%;
+
+  @media (--m) {
+    width: 50%; /* or */
+    width: 320px; /* For example, sidebar with fixed width */
+  }
+}
+In case a column has no width, it should behave flex: 1 1 0 property.
+
+.selector--large {
+  width: 100%;
+
+  @media (--m) {
+    width: auto;
+    flex: 1 1 0;
+  }
+}
+Known bug: Single child column inside a parent class
+The case
+
+To build an equal height grid (multiple columns with the same height).
+
+Solutions
+
+Some quick rules:
+
+Don't set height: 100% to any child elements. A good Flexbox structure could be work without it.
+Add inner div inside each column to keep adding a background color without losing its width.
+CSS example
+
+.two-up__grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+
+.two-up__col {
+  @media (--m) {
+    display: flex;
+    flex-direction: column; /* Keep single div inside working better */
+    padding: 0 20px;
+  }
+}
+
+.two-up__col-inner {
+  @media (--m) {
+    width: 100%;
+    flex: 1 0 auto; /* It will have a full height */
+    padding: 20px;
+    background: var(--primary);
+  }
+}
+Markup example
+
+<div class="two-up__grid">
+  <div class="two-up__col">
+    <div class="two-up__col-inner"></div>
+  </div>
+  <div class="two-up__col">
+    <div class="two-up__col-inner"></div>
+  </div>
+</div>
